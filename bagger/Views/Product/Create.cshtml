@@ -1,0 +1,19 @@
+﻿@model bagger.Models.Product
+<h2>Add a product</h2>
+
+
+<form asp-action="Create">
+    <div class="mb-3">
+        <label class="form-label">Name of Product</label>
+        <input asp-for="Name" type="text" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">On Hand Balance</label>
+        <input asp-for="Count" type="number" class="form-control" />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Unit of measurement</label>
+        <input asp-for="UoM" type="text" class="form-control" />
+    </div>
+    <input type="submit" class="btn btn-primary" value="Create product!"/>
+</form>

@@ -1,0 +1,29 @@
+﻿@model IEnumerable<bagger.Models.Product>
+
+<h2>Product Count</h2>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Count</th>
+            <th>Unit of Measure</th>
+            <th>Count</th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody>
+    
+            @foreach (var product in Model)
+            {
+                <tr>
+                    <td>@product.Name</td>
+                    <td>@product.Count</td>
+                    <td>@product.UoM</td>
+                    <td><a asp-action="Edit" asp-route-id="@product.Id">Count</a></td>
+                    <td><a asp-action="Delete" asp-route-id="@product.Id">Delete</a></td>
+                </tr>
+            }
+        
+    </tbody>
+</table>

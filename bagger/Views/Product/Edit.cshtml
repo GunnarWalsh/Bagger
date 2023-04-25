@@ -1,0 +1,22 @@
+﻿@model bagger.Models.Product
+
+<h2>Edit Product</h2>
+
+<form asp-action="Edit" method="post">
+    <div class="form-group">
+        <label asp-for="Name" class="control-label">Name of Product</label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="Count" class="control-label">Name of Product</label>
+        <input asp-for="Count" class="form-control" />
+        <span asp-validation-for="Count" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="UoM" class="control-label">Name of Product</label>
+        <input asp-for="UoM" class="form-control" />
+        <span asp-validation-for="UoM" class="text-danger"></span>
+    </div>
+    <input type="submit" class="btn btn-primary" value="Count product!" />
+</form>
