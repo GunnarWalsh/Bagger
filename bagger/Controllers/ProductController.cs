@@ -4,12 +4,14 @@ using System.Linq;
 using System.Threading.Tasks;
 using bagger.Data;
 using bagger.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
 namespace bagger.Controllers
 {
+    
     public class ProductController : Controller
     {
         private readonly ApplicationDbContext _dbContext;
@@ -23,6 +25,7 @@ namespace bagger.Controllers
             var products = _dbContext.Products.ToList();
             return View(products);
         }
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             return View();
@@ -35,6 +38,7 @@ namespace bagger.Controllers
             _dbContext.SaveChanges(); // --> Error Solution: dotnet ef migrations add [migration name] -> dotnet ef database update
             return View();
         }
+       
         public IActionResult Edit(int id)
         {
             var item = _dbContext.Products.Find(id);
@@ -56,8 +60,9 @@ namespace bagger.Controllers
                 _dbContext.Update(product);
                 _dbContext.SaveChanges();
             }
-            return View(product);
+            return Redirect("/Product");
         }
+        [Authorize(Roles = "Admin")]
         public IActionResult Delete(int id, Product product)
         {
             if (id != product.Id)
