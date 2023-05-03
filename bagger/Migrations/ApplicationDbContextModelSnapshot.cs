@@ -221,13 +221,28 @@ namespace bagger.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
+                    b.Property<string>("ActualPurchase")
+                        .HasColumnType("longtext");
+
                     b.Property<int?>("Count")
                         .HasColumnType("int");
+
+                    b.Property<string>("Explanation")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("LegacyDescription")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("LegacyItemNumber")
+                        .HasColumnType("longtext");
 
                     b.Property<string>("Name")
                         .HasColumnType("longtext");
 
                     b.Property<string>("UoM")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("UsageReport")
                         .HasColumnType("longtext");
 
                     b.HasKey("Id");
