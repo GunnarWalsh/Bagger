@@ -1,19 +1,73 @@
 ﻿@model bagger.Models.Product
 <h2>Add a product</h2>
+@Html.ValidationSummary(false, "", new { @class = "text-danger" })
 
 
 <form asp-action="Create">
     <div class="mb-3">
         <label class="form-label">Name of Product</label>
         <input asp-for="Name" type="text" class="form-control" />
+        <span class="text-danger" asp-validation-for="Name"></span>
     </div>
+
+
     <div class="mb-3">
         <label class="form-label">On Hand Balance</label>
         <input asp-for="Count" type="number" class="form-control" />
+        <span class="text-danger" asp-validation-for="Count"></span>
     </div>
+
+
     <div class="mb-3">
         <label class="form-label">Unit of measurement</label>
         <input asp-for="UoM" type="text" class="form-control" />
+        <span class="text-danger" asp-validation-for="UoM"></span>
     </div>
-    <input type="submit" class="btn btn-primary" value="Create product!"/>
+
+
+    @*<div class="mb-3">
+        <label class="form-label">Legacy Item Number</label>
+        <input asp-for="LegacyItemNumber" type="text" class="form-control" />
+        <span class="text-danger" asp-validation-for="LegacyItemNumber"></span>
+    </div>
+
+
+    <div class="mb-3">
+        <label class="form-label">Legacy Description:</label>
+        <input asp-for="LegacyDescription" type="text" class="form-control" />
+        <span class="text-danger" asp-validation-for="LegacyDescription"></span>
+    </div>
+
+
+    <div class="mb-3">
+        <label class="form-label">6 month actual purchase</label>
+        <input asp-for="ActualPurchase" type="text" class="form-control" />
+        <span class="text-danger" asp-validation-for="ActualPurchase"></span>
+    </div>
+
+
+    <div class="mb-3">
+        <label class="form-label">90 day usage report</label>
+        <input asp-for="UsageReport" type="text" class="form-control" />
+        <span class="text-danger" asp-validation-for="UsageReport"></span>
+    </div>
+
+
+    <div class="mb-3">
+        <label class="form-label">Explanation</label>
+        <input asp-for="Explanation" type="text" class="form-control" />
+        <span class="text-danger" asp-validation-for="Explanation"></span>
+    </div>
+
+        @if (TempData["msg"] != null)
+        {
+            <div class="mb-3">
+                @TempData["msg"]
+            </div>
+        }*@
+
+
+    <input type="submit" class="btn btn-primary" value="Create product!" />
+
 </form>
+
