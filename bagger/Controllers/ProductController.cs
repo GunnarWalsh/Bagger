@@ -34,9 +34,12 @@ namespace bagger.Controllers
         [HttpPost]
         public IActionResult Create(Product product)
         {
+            if (ModelState.IsValid)
+            {
             _dbContext.Products.Add(product);
             _dbContext.SaveChanges(); // --> Error Solution: dotnet ef migrations add [migration name] -> dotnet ef database update
-            return View();
+            }
+            return View(product);
         }
        
         public IActionResult Edit(int id)
@@ -55,11 +58,13 @@ namespace bagger.Controllers
             {
                 return NotFound();
             }
-            if(ModelState.IsValid)
+            if (ModelState.IsValid)
             {
                 _dbContext.Update(product);
                 _dbContext.SaveChanges();
+
             }
+
             return Redirect("/Product");
         }
         [Authorize(Roles = "Admin")]
@@ -69,11 +74,8 @@ namespace bagger.Controllers
             {
                 return NotFound();
             }
-            if (ModelState.IsValid)
-            {
-                _dbContext.Remove(product);
-                _dbContext.SaveChanges();
-            }
+            _dbContext.Remove(product);
+            _dbContext.SaveChanges();
             return Redirect("/Product");
             
         }

@@ -1,6 +1,6 @@
 ﻿@model bagger.Models.Product
 <h2>Add a product</h2>
-@Html.ValidationSummary(false, "", new { @class = "text-danger" })
+
 
 
 <form asp-action="Create">
@@ -25,7 +25,7 @@
     </div>
 
 
-    @*<div class="mb-3">
+    <div class="mb-3">
         <label class="form-label">Legacy Item Number</label>
         <input asp-for="LegacyItemNumber" type="text" class="form-control" />
         <span class="text-danger" asp-validation-for="LegacyItemNumber"></span>
@@ -59,15 +59,8 @@
         <span class="text-danger" asp-validation-for="Explanation"></span>
     </div>
 
-        @if (TempData["msg"] != null)
-        {
-            <div class="mb-3">
-                @TempData["msg"]
-            </div>
-        }*@
-
 
     <input type="submit" class="btn btn-primary" value="Create product!" />
-
+    <div asp-validation-summary="All" class="text-danger"></div>
 </form>
 

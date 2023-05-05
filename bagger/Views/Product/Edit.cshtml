@@ -3,20 +3,67 @@
 <h2>Edit Product</h2>
 
 <form asp-action="Edit" method="post">
-    <div class="form-group">
-        <label asp-for="Name" class="control-label">Name of Product</label>
-        <input asp-for="Name" class="form-control" readonly/>
-        <span asp-validation-for="Name" class="text-danger"></span>
+    <div class="edit">
+        <div class="form-group">
+            <label asp-for="Name" class="control-label">Name of Product</label>
+            <input asp-for="Name" class="form-control" readonly />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Count" class="control-label">Count</label>
+            <input asp-for="Count" class="form-control" />
+            <span asp-validation-for="Count" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="UoM" class="control-label">Unit of measurement</label>
+            <select asp-for="UoM">
+                <option value="CS">Case</option>
+                <option value="BX">Box</option>
+                <option value="EA">Each</option>
+                <option value="RL">Roll</option>
+                <option value="PR">Pair</option>
+                <option value="SK">Skid</option>
+                <option value="TB">Tub</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="ActualPurchase" class="control-label">Legacy Description</label>
+            <input asp-for="ActualPurchase" class="form-control" readonly />
+            <span asp-validation-for="ActualPurchase" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="Explanation" class="control-label">Legacy ItemNumber</label>
+            <input asp-for="Explanation" class="form-control" readonly />
+            <span asp-validation-for="Explanation" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="LegacyDescription" class="control-label">Name of Product</label>
+            <input asp-for="LegacyDescription" class="form-control" readonly />
+            <span asp-validation-for="LegacyDescription" class="text-danger"></span>
+        </div>
+
+        <div class="form-group">
+            <label asp-for="LegacyItemNumber" class="control-label">Name of Product</label>
+            <input asp-for="LegacyItemNumber" class="form-control" readonly />
+            <span asp-validation-for="LegacyItemNumber" class="text-danger"></span>
+        </div>
+
+
+        <div class="form-group">
+            <label asp-for="UsageReport" class="control-label">Name of Product</label>
+            <input asp-for="UsageReport" class="form-control" readonly />
+            <span asp-validation-for="UsageReport" class="text-danger"></span>
+        </div>
+
+
     </div>
-    <div class="form-group">
-        <label asp-for="Count" class="control-label">Name of Product</label>
-        <input asp-for="Count" class="form-control" />
-        <span asp-validation-for="Count" class="text-danger"></span>
+    <div  class="edit-button">
+        <input type="submit" value="Count product!" />
+        <div asp-validation-summary="All" class="text-danger"></div>
     </div>
-    <div class="form-group">
-        <label asp-for="UoM" class="control-label">Name of Product</label>
-        <input asp-for="UoM" class="form-control" />
-        <span asp-validation-for="UoM" class="text-danger"></span>
-    </div>
-    <input type="submit" class="btn btn-primary" value="Count product!" />
+
+
 </form>
