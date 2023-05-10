@@ -53,4 +53,6 @@ select{
 .count-table{
     max-width:850px;
     margin: 0 auto;
+    min-height: 1000px;
+    max-height: 1200px;
 }
