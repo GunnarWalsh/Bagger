@@ -21,9 +21,12 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1 justify-content-evenly">
-                        <li class="nav-item">
-                            <a class="btn btn-outline-primary" asp-area="" asp-controller="Product" asp-action="Create">Create</a>
-                        </li>
+                        @if (User.IsInRole("Admin"))
+                        {  //Only the admin will be able to see
+                            <li class="nav-item">
+                                <a class="btn btn-outline-primary" asp-area="" asp-controller="Product" asp-action="Create">Create</a>
+                            </li>
+                        }
                         <li class="nav-item">
                             <a class="btn btn-outline-primary" asp-area="" asp-controller="Product" asp-action="Index">Count!</a>
                         </li>
