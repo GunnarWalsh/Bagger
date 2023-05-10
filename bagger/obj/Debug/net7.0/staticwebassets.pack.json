@@ -5,12 +5,16 @@
       "PackagePath": "staticwebassets/bagger.bundle.scp.css"
     },
     {
-      "Id": "/Users/gunnar/Projects/bagger/bagger/wwwroot/css/site.css",
-      "PackagePath": "staticwebassets/css/site.css"
+      "Id": "/Users/gunnar/Projects/bagger/bagger/wwwroot/Concordance-fav.ico",
+      "PackagePath": "staticwebassets/Concordance-fav.ico"
     },
     {
-      "Id": "/Users/gunnar/Projects/bagger/bagger/wwwroot/favicon.ico",
-      "PackagePath": "staticwebassets/favicon.ico"
+      "Id": "/Users/gunnar/Projects/bagger/bagger/wwwroot/Concordance_logo_clear.png",
+      "PackagePath": "staticwebassets/Concordance_logo_clear.png"
+    },
+    {
+      "Id": "/Users/gunnar/Projects/bagger/bagger/wwwroot/css/site.css",
+      "PackagePath": "staticwebassets/css/site.css"
     },
     {
       "Id": "/Users/gunnar/Projects/bagger/bagger/wwwroot/js/site.js",
