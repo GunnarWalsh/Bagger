@@ -1,8 +1,8 @@
 ﻿@model IEnumerable<bagger.Models.Product>
 
-<h2>Product Count</h2>
+<h2 class="text-center">Product Count</h2>
 
-<table border="1">
+<table border="1" class="count-table">
     <thead>
         <tr>
             <th>Name</th>
@@ -12,18 +12,19 @@
             <th>Delete</th>
         </tr>
     </thead>
-    <tbody>
+    <tbody >
     
             @foreach (var product in Model)
             {
                 <tr>
-                    <td>@product.Name</td>
-                    <td>@product.Count</td>
-                    <td>@product.UoM</td>
+                    <td class="@((product.Count < 10 ) ? "text-warning" : "text-success") @((product.Count < 5) ? "text-danger" : "")">@product.Name</td>
+                    <td class="@((product.Count < 10) ? "text-warning" : "text-success") @((product.Count < 5) ? "text-danger" : "")">@product.Count</td>
+                    <td class="text-center @((product.Count < 10) ? "text-warning" : "text-success") @((product.Count < 5) ? "text-danger" : "")">@product.UoM</td>
                     <td><a asp-action="Edit" asp-route-id="@product.Id">Count</a></td>
                     <td><a asp-action="Delete" asp-route-id="@product.Id">Delete</a></td>
                 </tr>
             }
+        
         
     </tbody>
 </table>

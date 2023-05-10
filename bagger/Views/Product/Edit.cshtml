@@ -1,7 +1,10 @@
 ﻿@model bagger.Models.Product
 
 <h2>Edit Product</h2>
-
+@if (User.IsInRole("Admin"))
+{  //Only the admin will be able to see
+    <h1>Hi Admin</h1>
+}
 <form asp-action="Edit" method="post">
     <div class="edit">
         <div class="form-group">
@@ -28,39 +31,39 @@
         </div>
 
         <div class="form-group">
-            <label asp-for="ActualPurchase" class="control-label">Legacy Description</label>
+            <label asp-for="ActualPurchase" class="control-label">Actual Purchase Amount</label>
             <input asp-for="ActualPurchase" class="form-control" readonly />
             <span asp-validation-for="ActualPurchase" class="text-danger"></span>
         </div>
 
         <div class="form-group">
-            <label asp-for="Explanation" class="control-label">Legacy ItemNumber</label>
+            <label asp-for="Explanation" class="control-label">Explanation</label>
             <input asp-for="Explanation" class="form-control" readonly />
             <span asp-validation-for="Explanation" class="text-danger"></span>
         </div>
 
         <div class="form-group">
-            <label asp-for="LegacyDescription" class="control-label">Name of Product</label>
+            <label asp-for="LegacyDescription" class="control-label">Legacy Description</label>
             <input asp-for="LegacyDescription" class="form-control" readonly />
             <span asp-validation-for="LegacyDescription" class="text-danger"></span>
         </div>
 
         <div class="form-group">
-            <label asp-for="LegacyItemNumber" class="control-label">Name of Product</label>
+            <label asp-for="LegacyItemNumber" class="control-label">Legacy Item Number</label>
             <input asp-for="LegacyItemNumber" class="form-control" readonly />
             <span asp-validation-for="LegacyItemNumber" class="text-danger"></span>
         </div>
 
 
         <div class="form-group">
-            <label asp-for="UsageReport" class="control-label">Name of Product</label>
+            <label asp-for="UsageReport" class="control-label">90 Day usage report</label>
             <input asp-for="UsageReport" class="form-control" readonly />
             <span asp-validation-for="UsageReport" class="text-danger"></span>
         </div>
 
 
     </div>
-    <div  class="edit-button">
+    <div class="edit-button">
         <input type="submit" value="Count product!" />
         <div asp-validation-summary="All" class="text-danger"></div>
     </div>
