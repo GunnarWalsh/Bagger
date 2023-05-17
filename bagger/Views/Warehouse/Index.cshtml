@@ -1,0 +1,36 @@
+﻿@model IEnumerable<bagger.Models.Warehouse>
+
+<h2 class="text-center">Warehouse</h2>
+
+<table border="1" class="count-table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Count</th>
+            <th>Unit of Measure</th>
+            <th>Count</th>
+            @if (User.IsInRole("Admin"))
+            {  //Only the admin will be able to see
+            <th>Delete</th>
+            }
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var product in Model)
+            {
+        <tr>
+            <td>@product.Location</td>
+            <td class="text-center">@product.Location</td>
+            <td class="text-center">@product.Tier</td>
+            <td><a asp-action="Edit" asp-route-id="@product.WarehouseId">Count</a></td>
+            @if (User.IsInRole("Admin"))
+                    {  //Only the admin will be able to see
+            <td><a asp-action="Delete" asp-route-id="@product.WarehouseId">Delete</a></td>
+                    }
+        </tr>
+            }
+
+
+    </tbody>
+</table>

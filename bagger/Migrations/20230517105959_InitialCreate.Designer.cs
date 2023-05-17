@@ -11,8 +11,8 @@ using bagger.Data;
 namespace bagger.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230503175252_InitialComit")]
-    partial class InitialComit
+    [Migration("20230517105959_InitialCreate")]
+    partial class InitialCreate
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -225,32 +225,79 @@ namespace bagger.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("ActualPurchase")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<int?>("Count")
+                        .IsRequired()
                         .HasColumnType("int");
 
                     b.Property<string>("Explanation")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
+                    b.Property<bool>("IsSelected")
+                        .HasColumnType("tinyint(1)");
+
                     b.Property<string>("LegacyDescription")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("LegacyItemNumber")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("Name")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("UoM")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("UsageReport")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.HasKey("Id");
 
                     b.ToTable("Products");
+                });
+
+            modelBuilder.Entity("bagger.Models.Warehouse", b =>
+                {
+                    b.Property<int>("WarehouseId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Location")
+                        .IsRequired()
+                        .HasColumnType("longtext");
+
+                    b.Property<int>("Tier")
+                        .HasColumnType("int");
+
+                    b.HasKey("WarehouseId");
+
+                    b.ToTable("Warehouses");
+                });
+
+            modelBuilder.Entity("bagger.Models.WarehouseProduct", b =>
+                {
+                    b.Property<int>("WarehouseId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("ProductId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("WarehouseProductId")
+                        .HasColumnType("int");
+
+                    b.HasKey("WarehouseId", "ProductId");
+
+                    b.HasIndex("ProductId");
+
+                    b.ToTable("WarehouseProducts");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -302,6 +349,35 @@ namespace bagger.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("bagger.Models.WarehouseProduct", b =>
+                {
+                    b.HasOne("bagger.Models.Product", "Product")
+                        .WithMany("WarehouseProducts")
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("bagger.Models.Warehouse", "Warehouse")
+                        .WithMany("WarehouseProducts")
+                        .HasForeignKey("WarehouseId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Product");
+
+                    b.Navigation("Warehouse");
+                });
+
+            modelBuilder.Entity("bagger.Models.Product", b =>
+                {
+                    b.Navigation("WarehouseProducts");
+                });
+
+            modelBuilder.Entity("bagger.Models.Warehouse", b =>
+                {
+                    b.Navigation("WarehouseProducts");
                 });
 #pragma warning restore 612, 618
         }
