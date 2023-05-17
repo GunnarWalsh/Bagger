@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "1Uxof0JJhLABbneQ6+Yvrdpu1AGFwSg9c8AfYfdV26k=",
+  "Hash": "vG2qjeFArw6ZSKQ6o8nhX4wHIovsn/bbSoViadJPhis=",
   "Source": "bagger",
   "BasePath": "_content/bagger",
   "Mode": "Default",
@@ -1071,6 +1071,40 @@
       "OriginalItemSpec": "/Users/gunnar/Projects/bagger/bagger/obj/Debug/net7.0/scopedcss/projectbundle/bagger.bundle.scp.css"
     },
     {
+      "Identity": "/Users/gunnar/Projects/bagger/bagger/wwwroot/Concordance_logo_clear.png",
+      "SourceId": "bagger",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/gunnar/Projects/bagger/bagger/wwwroot/",
+      "BasePath": "_content/bagger",
+      "RelativePath": "Concordance_logo_clear.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/Concordance_logo_clear.png"
+    },
+    {
+      "Identity": "/Users/gunnar/Projects/bagger/bagger/wwwroot/Concordance-fav.ico",
+      "SourceId": "bagger",
+      "SourceType": "Discovered",
+      "ContentRoot": "/Users/gunnar/Projects/bagger/bagger/wwwroot/",
+      "BasePath": "_content/bagger",
+      "RelativePath": "Concordance-fav.ico",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot/Concordance-fav.ico"
+    },
+    {
       "Identity": "/Users/gunnar/Projects/bagger/bagger/wwwroot/css/site.css",
       "SourceId": "bagger",
       "SourceType": "Discovered",
@@ -1086,23 +1120,6 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot/css/site.css"
-    },
-    {
-      "Identity": "/Users/gunnar/Projects/bagger/bagger/wwwroot/favicon.ico",
-      "SourceId": "bagger",
-      "SourceType": "Discovered",
-      "ContentRoot": "/Users/gunnar/Projects/bagger/bagger/wwwroot/",
-      "BasePath": "_content/bagger",
-      "RelativePath": "favicon.ico",
-      "AssetKind": "All",
-      "AssetMode": "All",
-      "AssetRole": "Primary",
-      "RelatedAsset": "",
-      "AssetTraitName": "",
-      "AssetTraitValue": "",
-      "CopyToOutputDirectory": "Never",
-      "CopyToPublishDirectory": "PreserveNewest",
-      "OriginalItemSpec": "wwwroot/favicon.ico"
     },
     {
       "Identity": "/Users/gunnar/Projects/bagger/bagger/wwwroot/js/site.js",
