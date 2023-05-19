@@ -5,8 +5,9 @@ namespace bagger.Models
 {
 	public class Product
 	{
+        
 		public int Id { get; set; }
-
+        public bool IsSelected { get; set; }
 
         [Required(ErrorMessage = "Please enter the name of the product!")]
         public string? Name { get; set; }
@@ -32,6 +33,7 @@ namespace bagger.Models
         [Required(ErrorMessage = "Please enter the usage report")]
         public string? UsageReport { get; set; }
 
+        public ICollection<WarehouseProduct> WarehouseProducts { get; set; } = new List<WarehouseProduct>();
     }
 }
 
