@@ -47,3 +47,89 @@ button.accept-policy[b-p8rib6mz4c] {
   line-height: 60px;
 }
 
+
+
+
+.navbar-toggler[b-p8rib6mz4c] {
+    width: 20px;
+    height: 20px;
+    position: relative;
+    transition: .5s ease-in-out;
+}
+
+    .navbar-toggler[b-p8rib6mz4c],
+    .navbar-toggler:focus[b-p8rib6mz4c],
+    .navbar-toggler:active[b-p8rib6mz4c],
+    .navbar-toggler-icon:focus[b-p8rib6mz4c] {
+        outline: none;
+        box-shadow: none;
+        border: 0;
+        position: relative;
+    }
+
+        .navbar-toggler span[b-p8rib6mz4c] {
+            margin: 0;
+            padding: 0;
+        }
+
+.toggler-icon[b-p8rib6mz4c] {
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background: #d3531a;
+    border-radius: 1px;
+    opacity: 1;
+    left: 0;
+    transform: rotate(0deg);
+    transition: .25s ease-in-out;
+}
+
+.middle-bar[b-p8rib6mz4c] {
+    margin-top: 0px;
+}
+
+
+/* State when the navbar is collapsed */
+
+.navbar-toggler.collapsed .top-bar[b-p8rib6mz4c] {
+    position: absolute;
+    top: 0px;
+    transform: rotate(0deg);
+}
+
+.navbar-toggler.collapsed .middle-bar[b-p8rib6mz4c] {
+    opacity: 1;
+    position: absolute;
+    top: 10px;
+    filter: alpha(opacity=100);
+}
+
+.navbar-toggler.collapsed .bottom-bar[b-p8rib6mz4c] {
+    position: absolute;
+    top: 20px;
+    transform: rotate(0deg);
+}
+
+/* when navigation is clicked */
+
+.navbar-toggler .top-bar[b-p8rib6mz4c] {
+    top: inherit;
+    transform: rotate(135deg);
+}
+
+.navbar-toggler .middle-bar[b-p8rib6mz4c] {
+    opacity: 0;
+    top: inherit;
+    filter: alpha(opacity=0);
+}
+
+.navbar-toggler .bottom-bar[b-p8rib6mz4c] {
+    top: inherit;
+    transform: rotate(-135deg);
+}
+
+/* Color of 3 lines */
+
+.navbar-toggler.collapsed .toggler-icon[b-p8rib6mz4c] {
+    background: linear-gradient( 263deg, #193f74 0%, #ed6a32 100% );

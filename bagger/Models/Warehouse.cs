@@ -13,6 +13,7 @@ namespace bagger.Models
         public string Location { get; set; }
 		public int Tier { get; set; }
         public ICollection<WarehouseProduct> WarehouseProducts { get; set; } = new List<WarehouseProduct>();
+        
     }
 }
 

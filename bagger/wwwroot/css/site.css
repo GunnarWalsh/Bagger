@@ -18,17 +18,16 @@ html {
 }
 
 body {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    background-image: linear-gradient(to top, #193f74, #1b4f88, #1b609c, #1971b0, #1483c4, #178ece, #1c98d7, #21a3e1, #2fa8e3, #3aaee5, #45b3e7, #4fb8e9);
 }
 
 td {
-    border: dotted #f3713c 1px;
-    padding: 10px;
+    border-top: 1px solid black;
     align-items: center;
 }
-th{
-    padding:10px;
-}
+
+
 
 .edit {
     display: grid;
@@ -50,9 +49,16 @@ select{
     max-width: 367px;
 }
 
-.count-table{
-    max-width:850px;
+.product-count {
+    background-color: white;
+    box-shadow: 10px 5px 5px #193f74;
+    border-radius: 25px;
+    width:fit-content;
+    padding: 1rem;
     margin: 0 auto;
-    min-height: 1000px;
-    max-height: 1200px;
+}
+.product-table{
+    max-width:800px;
+    margin: 0 auto;
+    justify-content: space-evenly;
 }

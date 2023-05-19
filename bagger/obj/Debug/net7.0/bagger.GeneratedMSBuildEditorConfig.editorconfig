@@ -56,6 +56,10 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvV2FyZWhvdXNlL0NyZWF0ZS5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
+[/Users/gunnar/Projects/bagger/bagger/Views/Warehouse/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3MvV2FyZWhvdXNlL0VkaXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
 [/Users/gunnar/Projects/bagger/bagger/Views/Warehouse/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3MvV2FyZWhvdXNlL0luZGV4LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 

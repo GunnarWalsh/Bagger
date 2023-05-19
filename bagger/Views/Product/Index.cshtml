@@ -2,35 +2,37 @@
 
 <h2 class="text-center">Product Count</h2>
 
-<table border="1" class="count-table">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Count</th>
-            <th>Unit of Measure</th>
-            <th>Count</th>
-            @if (User.IsInRole("Admin"))
-            {  //Only the admin will be able to see
-                <th>Delete</th>
-            }
-        </tr>
-    </thead>
-    <tbody >
-    
+<div class="product-count">
+    <table class="product-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Count</th>
+                <th>Unit of Measure</th>
+                <th> </th>
+                @if (User.IsInRole("Admin"))
+                {  //Only the admin will be able to see
+                    <th> </th>
+                }
+            </tr>
+        </thead>
+        <tbody>
+
             @foreach (var product in Model)
             {
                 <tr>
                     <td>@product.Name</td>
                     <td class="text-center @((product.Count < 10) ? "text-warning" : "text-success") @((product.Count < 5) ? "text-danger" : "")">@product.Count</td>
                     <td class="text-center @((product.UoM == "CS" || product.UoM == "SK") ? "text-success" : "text-danger")">@product.UoM</td>
-                    <td><a asp-action="Edit" asp-route-id="@product.Id">Count</a></td>
+                    <td><a asp-action="Edit" asp-route-id="@product.Id" class="m-2">Count</a></td>
                     @if (User.IsInRole("Admin"))
                     {  //Only the admin will be able to see
                         <td><a asp-action="Delete" asp-route-id="@product.Id">Delete</a></td>
                     }
                 </tr>
             }
-        
-        
-    </tbody>
-</table>
+
+
+        </tbody>
+    </table>
+</div>

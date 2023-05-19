@@ -5,10 +5,10 @@
 <table border="1" class="count-table">
     <thead>
         <tr>
-            <th>Name</th>
-            <th>Count</th>
-            <th>Unit of Measure</th>
-            <th>Count</th>
+            <th>Zip Code</th>
+            <th>Location</th>
+            <th>Tier</th>
+            <th>Products</th>
             @if (User.IsInRole("Admin"))
             {  //Only the admin will be able to see
             <th>Delete</th>
@@ -17,16 +17,16 @@
     </thead>
     <tbody>
 
-        @foreach (var product in Model)
+        @foreach (var warehouse in Model)
             {
         <tr>
-            <td>@product.Location</td>
-            <td class="text-center">@product.Location</td>
-            <td class="text-center">@product.Tier</td>
-            <td><a asp-action="Edit" asp-route-id="@product.WarehouseId">Count</a></td>
+            <td>@warehouse.WarehouseId</td>
+            <td class="text-center">@warehouse.Location</td>
+            <td class="text-center">@warehouse.Tier</td>
+            <td><a asp-action="Edit" asp-route-id="@warehouse.WarehouseId">Products</a></td>
             @if (User.IsInRole("Admin"))
                     {  //Only the admin will be able to see
-            <td><a asp-action="Delete" asp-route-id="@product.WarehouseId">Delete</a></td>
+            <td><a asp-action="Delete" asp-route-id="@warehouse.WarehouseId">Delete</a></td>
                     }
         </tr>
             }

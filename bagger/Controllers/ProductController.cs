@@ -98,23 +98,73 @@ namespace bagger.Controllers
             return View(await _context.Warehouses.ToListAsync());
         }
 
-        // GET: Warehouse/Details/5
-        //public async Task<IActionResult> Details(int? id)
-        //{
-        //    if (id == null)
-        //    {
-        //        return NotFound();
-        //    }
+[HttpPost]
+public async Task<IActionResult> Edit(int id, Warehouse warehouse, int[] productIds)
+{
+    if (id != warehouse.WarehouseId)
+    {
+        return NotFound();
+    }
 
-        //    var warehouse = await _context.Warehouses.Include(w => w.Products)
-        //        .FirstOrDefaultAsync(m => m.WarehouseId == id);
-        //    if (warehouse == null)
-        //    {
-        //        return NotFound();
-        //    }
+    if (ModelState.IsValid)
+    {
+        try
+        {
+            _context.Update(warehouse);
+            await _context.SaveChangesAsync();
 
-        //    return View(warehouse);
-        //}
+            // Remove existing warehouse-product associations
+            var existingAssociations = _context.WarehouseProducts
+                .Where(wp => wp.WarehouseId == id)
+                .ToList();
+
+
+            _context.WarehouseProducts.RemoveRange(existingAssociations);
+            await _context.SaveChangesAsync();
+
+            // Create new warehouse-product associations
+            if (productIds != null)
+            {
+                foreach (int productId in productIds)
+                {
+                    var product = await _context.Products.FindAsync(productId);
+                    if (product != null)
+                    {
+                        var warehouseProduct = new WarehouseProduct
+                        {
+                            WarehouseId = warehouse.WarehouseId,
+                            ProductId = product.Id
+                        };
+
+                        _context.Add(warehouseProduct);
+                    }
+                }
+            }
+
+            await _context.SaveChangesAsync();
+        }
+        catch (DbUpdateConcurrencyException)
+        {
+            if (!WarehouseExists(warehouse.WarehouseId))
+            {
+                return NotFound();
+            }
+            else
+            {
+                throw;
+            }
+        }
+
+        return RedirectToAction(nameof(Index));
+    }
+
+    // Retrieve the list of products again to update the ViewBag
+    var products = _context.Products.ToList();
+    ViewBag.Products = products;
+
+    return View(warehouse);
+}
+
 
         // GET: Warehouse/Create
         public IActionResult Create()
@@ -127,42 +177,42 @@ namespace bagger.Controllers
         }
 
         // POST: Warehouse/Create
-[HttpPost]
-public async Task<IActionResult> Create(Warehouse warehouse, int[] productIds)
-{
-    if (ModelState.IsValid)
+    [HttpPost]
+    public async Task<IActionResult> Create(Warehouse warehouse, int[] productIds)
     {
-        _context.Add(warehouse);
-        await _context.SaveChangesAsync();
-
-        if (productIds != null)
+        if (ModelState.IsValid)
         {
-            foreach (int productId in productIds)
-            {
-                var product = await _context.Products.FindAsync(productId);
-                if (product != null)
-                {
-                    var warehouseProduct = new WarehouseProduct
-                    {
-                        WarehouseId = warehouse.WarehouseId,
-                        ProductId = product.Id
-                    };
+            _context.Add(warehouse);
+            await _context.SaveChangesAsync();
 
-                    _context.Add(warehouseProduct);
+            if (productIds != null)
+            {
+                foreach (int productId in productIds)
+                {
+                    var product = await _context.Products.FindAsync(productId);
+                    if (product != null)
+                    {
+                        var warehouseProduct = new WarehouseProduct
+                        {
+                            WarehouseId = warehouse.WarehouseId,
+                            ProductId = product.Id
+                        };
+
+                        _context.Add(warehouseProduct);
+                    }
                 }
             }
+
+            await _context.SaveChangesAsync();
+            return RedirectToAction(nameof(Index));
         }
 
-        await _context.SaveChangesAsync();
-        return RedirectToAction(nameof(Index));
+        // Retrieve the list of products again to update the ViewBag
+        var products = _context.Products.ToList();
+        ViewBag.Products = products;
+
+        return View(warehouse);
     }
-
-    // Retrieve the list of products again to update the ViewBag
-    var products = _context.Products.ToList();
-    ViewBag.Products = products;
-
-    return View(warehouse);
-}
 
 
 
